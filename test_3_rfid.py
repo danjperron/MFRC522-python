@@ -26,7 +26,6 @@
 #    If not, see <http://www.gnu.org/licenses/>.
 #
 
-import RPi.GPIO as GPIO
 from MFRC522 import MFRC522
 import signal
 import time
@@ -48,7 +47,6 @@ def end_read(signal, frame):
     global continue_reading
     print("Ctrl+C captured, ending read.")
     continue_reading = False
-    GPIO.cleanup()
 
 # Hook the SIGINT
 signal.signal(signal.SIGINT, end_read)
